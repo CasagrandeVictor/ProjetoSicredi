@@ -14,7 +14,7 @@ function Patrimonios() {
 
   const fetchPatrimonios = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/patrimonios");
+      const res = await axios.get("http://127.0.0.1:5000/api/patrimonios/");
       setPatrimonios(res.data);
     } catch (err) {
       console.error("Erro ao buscar patrimônios:", err);
@@ -28,7 +28,7 @@ function Patrimonios() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/patrimonios", form);
+      await axios.post("http://127.0.0.1:5000/api/patrimonios/", form);
       setForm({
         codigo_patrimonio: "",
         descricao: "",

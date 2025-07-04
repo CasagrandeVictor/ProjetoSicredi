@@ -10,11 +10,12 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
-    
+
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    CORS(app)  # ✔️ Adiciona CORS aqui (depois de criar o app)
+    # ✅ CORS configurado corretamente
+    CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
     db.init_app(app)
 
