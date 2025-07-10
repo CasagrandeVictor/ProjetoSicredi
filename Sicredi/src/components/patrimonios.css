@@ -1,0 +1,438 @@
+/* Reset e configurações base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8fffe 0%, #e8f5e8 100%);
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  
+  /* Cores da SICREDI */
+  :root {
+    --sicredi-green-primary: #4CAF50;
+    --sicredi-green-dark: #2E7D32;
+    --sicredi-green-light: #81C784;
+    --sicredi-green-bg: #E8F5E8;
+    --sicredi-yellow: #FFC107;
+    --sicredi-yellow-dark: #FF8F00;
+    --sicredi-white: #FFFFFF;
+    --sicredi-gray-light: #F5F5F5;
+    --sicredi-gray-medium: #9E9E9E;
+    --sicredi-gray-dark: #424242;
+    --sicredi-shadow: rgba(76, 175, 80, 0.15);
+    --sicredi-shadow-hover: rgba(76, 175, 80, 0.25);
+  }
+  
+  /* Container principal */
+  .sicredi-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--sicredi-green-bg) 0%, var(--sicredi-white) 100%);
+  }
+  
+  /* Header */
+  .sicredi-header {
+    background: linear-gradient(135deg, var(--sicredi-green-primary) 0%, var(--sicredi-green-dark) 100%);
+    color: var(--sicredi-white);
+    padding: 2rem 0;
+    box-shadow: 0 4px 20px var(--sicredi-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .sicredi-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    pointer-events: none;
+  }
+  
+  .sicredi-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: conic-gradient(from 0deg, var(--sicredi-green-light), var(--sicredi-green-primary), var(--sicredi-green-dark), var(--sicredi-green-light));
+    border-radius: 50%;
+    margin-right: 12px;
+    position: relative;
+    animation: rotate 20s linear infinite;
+  }
+  
+  .logo-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--sicredi-white);
+    border-radius: 50%;
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Conteúdo principal */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Seções */
+  .form-section,
+  .table-section {
+    width: 100%;
+  }
+  
+  /* Cards */
+  .form-card,
+  .table-card {
+    background: var(--sicredi-white);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--sicredi-shadow);
+    padding: 2rem;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .form-card::before,
+  .table-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--sicredi-green-primary), var(--sicredi-yellow));
+  }
+  
+  .form-card:hover,
+  .table-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px var(--sicredi-shadow-hover);
+  }
+  
+  /* Títulos das seções */
+  .section-title {
+    color: var(--sicredi-green-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .section-title::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: linear-gradient(180deg, var(--sicredi-green-primary), var(--sicredi-yellow));
+    border-radius: 2px;
+  }
+  
+  /* Formulário */
+  .patrimonio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    color: var(--sicredi-green-dark);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 1rem;
+    border: 2px solid var(--sicredi-gray-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--sicredi-white);
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--sicredi-green-primary);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  .form-group input::placeholder {
+    color: var(--sicredi-gray-medium);
+  }
+  
+  /* Botão de submit */
+  .submit-btn {
+    background: linear-gradient(135deg, var(--sicredi-green-primary) 0%, var(--sicredi-green-dark) 100%);
+    color: var(--sicredi-white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+  }
+  
+  .submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+  }
+  
+  .submit-btn:hover::before {
+    left: 100%;
+  }
+  
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+  
+  /* Tabela */
+  .table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--sicredi-gray-light);
+  }
+  
+  .patrimonios-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--sicredi-white);
+  }
+  
+  .patrimonios-table thead {
+    background: linear-gradient(135deg, var(--sicredi-green-primary) 0%, var(--sicredi-green-dark) 100%);
+    color: var(--sicredi-white);
+  }
+  
+  .patrimonios-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+  }
+  
+  .patrimonios-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--sicredi-gray-light);
+    transition: background-color 0.2s ease;
+  }
+  
+  .patrimonios-table tbody tr:hover {
+    background: var(--sicredi-green-bg);
+  }
+  
+  .patrimonios-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Status badges */
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .status-em-uso {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--sicredi-green-dark);
+    border: 1px solid var(--sicredi-green-light);
+  }
+  
+  .status-quebrado {
+    background: rgba(244, 67, 54, 0.1);
+    color: #c62828;
+    border: 1px solid #ef5350;
+  }
+  
+  .status-manutenção {
+    background: rgba(255, 193, 7, 0.1);
+    color: var(--sicredi-yellow-dark);
+    border: 1px solid var(--sicredi-yellow);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 1rem;
+    }
+    
+    .form-card,
+    .table-card {
+      padding: 1.5rem;
+    }
+    
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .sicredi-header {
+      padding: 1.5rem 1rem;
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+    }
+    
+    .page-title {
+      font-size: 1.2rem;
+    }
+    
+    .patrimonios-table {
+      font-size: 0.9rem;
+    }
+    
+    .patrimonios-table th,
+    .patrimonios-table td {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-grid {
+      gap: 1rem;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .patrimonios-table th,
+    .patrimonios-table td {
+      padding: 0.5rem 0.25rem;
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Animações de entrada */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-card,
+  .table-card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .form-card {
+    animation-delay: 0.1s;
+  }
+  
+  .table-card {
+    animation-delay: 0.2s;
+  }
+  
+  /* Efeitos de foco melhorados */
+  .form-group input:focus,
+  .form-group select:focus {
+    background: linear-gradient(135deg, var(--sicredi-white) 0%, rgba(76, 175, 80, 0.02) 100%);
+  }
+  
+  /* Scrollbar personalizada */
+  .table-container::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: var(--sicredi-gray-light);
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: var(--sicredi-green-light);
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: var(--sicredi-green-primary);
+  }
+  
+  
